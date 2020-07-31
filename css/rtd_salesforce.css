@@ -1,3 +1,11 @@
-table {
+.rtd_salesforce table {
   width: 100%;
+}
+
+.rtd_salesforce input {
+  margin-top: 10px;
+}
+
+.rtd_salesforce div.salesforce-radios {
+  margin-top: 10px;
 }
