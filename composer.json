@@ -1,0 +1,16 @@
+{
+    "name": "asu/rtd_salesforce",
+    "type": "drupal-module",
+    "description": "",
+    "keywords": ["Drupal"],
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "KE Web Services Arizona State University",
+            "email": "kewebservices@asu.edu"
+        }
+    ],
+    "homepage": "https://github.com/ASU-OKED-WEB-DEV/RTD_Salesforce",
+    "minimum-stability": "dev",
+    "require": { }
+}

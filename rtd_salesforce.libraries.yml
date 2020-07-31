@@ -1,0 +1,8 @@
+rtd-salesforce:
+  css:
+    base:
+      css/rtd_salesforce.css: {}
+  js:
+    js/rtd_salesforce.js: {}
+  dependencies:
+    - core/drupal
