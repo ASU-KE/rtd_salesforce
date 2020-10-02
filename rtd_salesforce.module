@@ -30,10 +30,9 @@ function rtd_salesforce_theme($existing, $type, $theme, $path) {
   return [
     'rtd_salesforce' => [
       'variables' => [
-        'list_id' => NULL,
-        'member_id' => NULL,
+        'external_key' => NULL,
+        'client_id' => NULL,
         'success_page' => NULL,
-        'unsubscribed_page' => NULL,
         'error_page' => NULL,
       ],
       '#attached' => [

@@ -23,25 +23,24 @@ class RtdSalesforceBlock extends BlockBase implements BlockPluginInterface {
   public function blockForm($form, FormStateInterface $form_state)
   {
     $form = parent::blockForm($form, $form_state);
-    $list_id = $this->configuration['list_id'];
-    $member_id = $this->configuration['member_id'];
+    $external_key = $this->configuration['external_key'];
+    $client_id = $this->configuration['client_id'];
     $success_page = $this->configuration['success_page'];
-    $unsubscribed_page = $this->configuration['unsubscribed_page'];
     $error_page = $this->configuration['error_page'];
 
-    $form['list_id'] = [
+    $form['client_id'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('List ID'),
-      '#description' => $this->t('Add a Salesforce list ID.'),
-      '#default_value' => $list_id,
+      '#title' => $this->t('Client ID'),
+      '#description' => $this->t('Add a client ID.'),
+      '#default_value' => $client_id,
       '#required' => true
     ];
 
-    $form['member_id'] = [
+    $form['external_key'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Member ID'),
-      '#description' => $this->t('Add a Salesforce member ID.'),
-      '#default_value' => $member_id,
+      '#title' => $this->t('External key'),
+      '#description' => $this->t('Add an external key.'),
+      '#default_value' => $external_key,
       '#required' => true
     ];
 
@@ -50,14 +49,6 @@ class RtdSalesforceBlock extends BlockBase implements BlockPluginInterface {
       '#title' => $this->t('Subscribed page'),
       '#description' => $this->t('Enter your thank you page.'),
       '#default_value' => $success_page,
-      '#required' => true
-    ];
-
-    $form['unsubscribed_page'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Unsubscribed page'),
-      '#description' => $this->t('Enter your success unsub page.'),
-      '#default_value' => $unsubscribed_page,
       '#required' => true
     ];
 
@@ -80,10 +71,9 @@ class RtdSalesforceBlock extends BlockBase implements BlockPluginInterface {
 
     parent::blockSubmit($form, $form_state);
 
-    $this->configuration['list_id'] = $form_state->getValue('list_id');
-    $this->configuration['member_id'] = $form_state->getValue('member_id');
+    $this->configuration['external_key'] = $form_state->getValue('external_key');
+    $this->configuration['client_id'] = $form_state->getValue('client_id');
     $this->configuration['success_page'] = $form_state->getValue('success_page');
-    $this->configuration['unsubscribed_page'] = $form_state->getValue('unsubscribed_page');
     $this->configuration['error_page'] = $form_state->getValue('error_page');
 
   }
@@ -99,10 +89,9 @@ class RtdSalesforceBlock extends BlockBase implements BlockPluginInterface {
 
     $build = [
       '#theme' => 'rtd_salesforce',
-      '#list_id' => $config['list_id'],
-      '#member_id' => $config['member_id'],
+      '#external_key' => $config['external_key'],
+      '#client_id' => $config['client_id'],
       '#success_page' => $config['success_page'],
-      '#unsubscribed_page' => $config['unsubscribed_page'],
       '#error_page' => $config['error_page'],
     ];
 

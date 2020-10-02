@@ -91,32 +91,21 @@
 
 <div class="rtd_salesforce">
 
-  <form action="http://cl.exct.net/subscribe.aspx?lid={{ list_id }}" name="subscribeForm" method="post" onSubmit="return checkForm();">
+  <form action="https://cl.s7.exct.net/DEManager.aspx" name="subscribeForm" method="post" onSubmit="return checkForm();">
 
-    <input type=hidden name="thx" value="{{ success_page }}">
-    <input type=hidden name="err" value="{{ error_page }}">
-    <input type=hidden name="usub" value="{{ unsubscribed_page }}">
-    <input type=hidden name="MID" value="{{ member_id }}">
+    <input type="hidden" name="_returnXML" value="0" />
+    <input type="hidden" name="_clientID" value="{{ client_id }}" />
+    <input type="hidden" name="_deExternalKey" value="{{ external_key }}" />
+    <input type="hidden" name="_action" value="add/update" />
 
-    <input type="text" name="Full Name" placeholder="Full Name" class="form-control">
+    <input type=hidden name="_successURL" value="{{ success_page }}">
+    <input type=hidden name="_errorURL" value="{{ error_page }}">
 
-    <input type="text" name="Email Address" placeholder="Email Address" class="form-control">
+    <input type="text" name="First Name" style="width:100%;" placeholder="Enter your first name" class="form-control" required>
+    <input type="text" name="Last Name" style="width:100%;" placeholder="Enter your last name" class="form-control" required>
+    <input type="email" name="Email Address" id="Email Address" style="width:100%;" placeholder="Enter your email address" class="form-control" required>
 
-    <div class="salesforce-radios">
-      <label>
-        <input type="radio" name="SubAction" value="sub_add_update" checked>
-        <span>Subscribe</span>
-      </label>
-    </div>
-
-    <div>
-      <label>
-        <input type="radio" name="SubAction" value="unsub">
-        <span>Unsubscribe</span>
-      </label>
-    </div>
-
-    <input type="submit" value="Submit" class="webform-button--submit button button--primary js-form-submit form-submit btn-primary btn">
+    <input type="submit" value="Subscribe" class="btn btn-primary">
 
   </form>
 
